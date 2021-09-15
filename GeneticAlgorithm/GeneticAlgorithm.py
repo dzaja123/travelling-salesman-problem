@@ -54,11 +54,9 @@ class GeneticAlgorithm:
 
 
     def __makePopulation(self, graph_nodes):
-
         return [''.join(v for v in np.random.permutation(graph_nodes)) for i in range(self.population_size)]
     
     def __computeFitness(self, graph, population):
-
         return [graph.getPathCost(path) for path in population]
     
     def __tournamentSelection(self, graph, population):
@@ -113,10 +111,8 @@ class GeneticAlgorithm:
         return ''.join(string)
 
 
-    def __converged(self, population):
-        
+    def __converged(self, population):     
         return all(genome == population[0] for genome in population)
-
 
 if __name__ == '__main__':
     
@@ -131,7 +127,6 @@ if __name__ == '__main__':
     graph.setAdjacent('c', 'd', 8)
     graph.setAdjacent('c', 'e', 9)
     graph.setAdjacent('d', 'e', 6)
-
 
     GA = GeneticAlgorithm(generations=20, population_size=7, tournamentSize=2, mutationRate=0.2, elitismRate=0.1)
     
